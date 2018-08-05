@@ -8,46 +8,27 @@ Charts(FusionCharts);
 
 var myDataSource = {
   chart: {
-    caption: 'POS Store',
-    subCaption: 'Last 3 Days Sale',
+    caption: 'The Filli',
+    subCaption: 'Profit and loss by days',
     numberPrefix: 'Rs.',
   },
   data: [
     {
-      label: '',
+      label: 'PROFIT',
       value: '',
     },
     {
-      label: '',
+      label: 'TOTAL SALES',
       value: '',
     },
-    {
-      label: '',
-      value: '',
-    },
-    {
-      label: '',
-      value: '',
-    },
-    {
-      label: '',
-      value: '',
-    },
-    {
-      label: '',
-      value: '',
-    },
-    {
-      label: '',
-      value: '',
-    },
-  ],
+   
+  ]
 };
 
 const chartConfigs = {
-  type: 'column2d',
-  width: 600,
-  height: 400,
+  type: 'pie2d',
+  width: '100%',
+  height: '100%',
   dataFormat: 'json',
   dataSource: myDataSource,
 };
@@ -65,7 +46,8 @@ export default class extends React.Component {
 
   oneDay = () => {
     var details = {
-      'token':this.state.t
+      'token':this.state.t,
+      'noofdays':1
   };
     var formBody = [];
     for (var property in details) {
@@ -75,7 +57,7 @@ export default class extends React.Component {
     }
     formBody = formBody.join("&");
     
-    fetch('/admin/fetchsales', {
+    fetch('/admin/showstats2', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' 
@@ -87,14 +69,9 @@ export default class extends React.Component {
       console.log(res)
       console.log("we are in this function");
       if(res){
-          Object.values(res).map((type,index)=> {
-            myDataSource.data[index].label=type.date_sale;
-            myDataSource.data[index].value=type.total
-          })
-          this.setState({
-
-          })
-
+        myDataSource.data[0].value=res.profit;
+        myDataSource.data[1].value=res.totalsale;
+        this.forceUpdate();
       };
     }
     );
@@ -103,7 +80,8 @@ export default class extends React.Component {
 
   threeDay = () => {
     var details = {
-      'token':this.state.t
+      'token':this.state.t,
+      'noofdays':3
   };
     var formBody = [];
     for (var property in details) {
@@ -113,7 +91,7 @@ export default class extends React.Component {
     }
     formBody = formBody.join("&");
     
-    fetch('/admin/fetchsales', {
+    fetch('/admin/showstats2', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' 
@@ -127,11 +105,10 @@ export default class extends React.Component {
       console.log(this.state.t);
       console.log(res);
       if(res){
-          Object.values(res).map((type,index)=> {
-            myDataSource.data[index].label=type.date_sale;
-            myDataSource.data[index].value=type.total
-          })
-
+          
+        myDataSource.data[0].value=res.profit;
+        myDataSource.data[1].value=res.totalsale;
+        this.forceUpdate();
       };
     }
     );
@@ -139,7 +116,8 @@ export default class extends React.Component {
   }
   tenDay = () => {
     var details = {
-      'token':this.state.t
+      'token':this.state.t,
+      'noofdays':10
   };
     var formBody = [];
     for (var property in details) {
@@ -149,7 +127,7 @@ export default class extends React.Component {
     }
     formBody = formBody.join("&");
     
-    fetch('/admin/fetchsales', {
+    fetch('/admin/showstats2', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' 
@@ -163,11 +141,9 @@ export default class extends React.Component {
       console.log(this.state.t);
       console.log(res);
       if(res){
-          Object.values(res).map((type,index)=> {
-            myDataSource.data[index].label=type.date_sale;
-            myDataSource.data[index].value=type.total
-          })
-
+        myDataSource.data[0].value=res.profit;
+        myDataSource.data[1].value=res.totalsale;
+        this.forceUpdate();
       };
     }
     );
