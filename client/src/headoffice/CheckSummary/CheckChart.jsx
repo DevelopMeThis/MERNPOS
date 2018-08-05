@@ -23,22 +23,26 @@ Charts(FusionCharts);
 
 var myDataSource = {
   chart: {
-    caption: 'POS Store',
-    subCaption: 'Last 3 Days Sale',
-    numberPrefix: 'Rs.',
+    caption: 'The filli profit and loss',
+    subCaption: 'Custom search',
+    
   },
   data: [
     {
-      label: '35',
-      value: '5000',
+      label: 'PROFIT',
+      value: '0',
+    },
+    {
+      label: 'TOTAL SALES',
+      value: '0',
     },
   ],
 };
 
 const chartConfigs = {
-  type: 'column2d',
-  width: 600,
-  height: 400,
+  type: 'pie2d',
+  width: '100%',
+  height: '100%',
   dataFormat: 'json',
   dataSource: myDataSource,
 };
@@ -92,16 +96,11 @@ class DatePickers extends React.Component {
           .then(res=>res.json())
           .then(res=>{
             if(res){
-                Object.values(res).map((type,index)=> {
-                    console.log(type.totalsale)
-                    console.log(type.profit)
-                    myDataSource.data.label=type.totalsale;
-                    myDataSource.data.value=type.profit
-                })
-                this.setState({
-
-                })
+              console.log(res);
+              myDataSource.data[0].value=res.profit;
+              myDataSource.data[1].value=res.totalsale;
             };
+            this.forceUpdate();
           }
           );
           console.log(myDataSource.data)
