@@ -7,7 +7,7 @@ import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
 import Cart from '@material-ui/icons/AddShoppingCart';
 import TextField from 'material-ui/TextField';
-
+import Printer from "./Printer";
 const CustomTableCell = withStyles(theme => ({
   head: {
     backgroundColor: '#3F51B5',
@@ -59,7 +59,7 @@ class Sale extends React.Component {
      'token':this.state.t
  };
  
-
+ 
  var formBody = [];
  for (var property in details) {
    var encodedKey = encodeURIComponent(property);
@@ -132,16 +132,16 @@ class Sale extends React.Component {
       })
       .then(res=>res.json())
       .then(res=>{    
-            console.log(res);
+        Printer.printData(this.state.cartItems,this.state.bill);
+        // reseting Bill portion
+        this.setState({
+          cartItems:[],
+          bill:0,
+          discount:0,
+          originalBill:0
+        });
       }); 
 
-      // reseting Bill portion
-      this.setState({
-        cartItems:[],
-        bill:0,
-        discount:0,
-        originalBill:0
-      });
   }
   
   
