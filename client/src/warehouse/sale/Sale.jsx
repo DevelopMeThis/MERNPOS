@@ -132,6 +132,7 @@ class Sale extends React.Component {
       })
       .then(res=>res.json())
       .then(res=>{    
+        console.log(res);
         Printer.printData(this.state.cartItems,this.state.bill);
         // reseting Bill portion
         this.setState({

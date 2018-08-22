@@ -13,7 +13,7 @@ const CustomTableCell = withStyles(theme => ({
   },
   body: {
     fontSize: 14,
-  },
+  }
 }))(TableCell);
 
 const styles = theme => ({
@@ -97,7 +97,6 @@ class CustomizedTable extends React.Component {
           </TableRow>
         </TableHead>
         <TableBody>
-          {/*data to be replaced with json pacakage from api*/}
           {Object.values(this.state.data).map((type) => {
                  console.log(type);
                  return (
