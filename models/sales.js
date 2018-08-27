@@ -4,12 +4,12 @@ var Schema = mongoose.Schema;
 
 var SaleSchema = new Schema(
   {
-    products:[{item_id: {type: Number, max: 400},
-    item_name: {type: String, required: true, max: 400},
+    products:[{item_id: {type: Number, max: 1000},
+    item_name: {type: String, required: true, max: 1000},
     retail_price: {type: Number},
     factory_price: {type: Number}}],
     date_sale: {type: Date},
-    Emp_Cnic: {type: String,  max: 400},
+    Emp_Cnic: {type: String,  max: 1000},
     total: {type:Number},
   }
 );
