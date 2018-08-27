@@ -1,6 +1,5 @@
 var qz = require("qz-tray");
 var config = qz.configs.create("zebra1");
-
 exports.printData = function(bill,sale){
     
     

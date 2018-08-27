@@ -94,7 +94,7 @@ exports.makesale = function (req, res) {
                     salesmodel.total = salesmodel.total + article.retail_price;
                 }
                 if (salesmodel.products.length === req.body.products.length) {
-                    salesmodel.save(function () {});
+                    salesmodel.save(function (res) { console.log(res)});
                     res.json('Done');
                 }
             });
