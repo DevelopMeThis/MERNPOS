@@ -30,11 +30,13 @@ class SimpleSnackbar extends React.Component {
     this.setState({ open: false });
   };
 
+
+
   render() {
     const { classes } = this.props;
     return (
       <div>
-        <Button onClick={this.handleClick}>Open simple snackbar</Button>
+        <Button onClick={this.handleClick}>notification</Button>
         <Snackbar
           anchorOrigin={{
             vertical: 'bottom',
