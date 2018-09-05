@@ -326,7 +326,7 @@ exports.displaySales3 = function(req,res){
                     }
                 }
                 console.log(sales);
-                res.json({Sales:sales});
+                res.json(sales);
             }
         }).catch(err =>{
             return res.status(500).send({
