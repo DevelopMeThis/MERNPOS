@@ -102,6 +102,7 @@ exports.makesale = function (req, res) {
     }
 }
 
+
 //function to fetch sales
 exports.Showsales = function (req, res) {
     sales_instance.find({Emp_Cnic: req.body.cnic})
@@ -110,8 +111,10 @@ exports.Showsales = function (req, res) {
                 res.json({
                     msg: "No data available to show"
                 })
-            } else
-                res.json(sal);
+            } else {
+                res.json(sal);                
+            }
+                
         }).catch(err => {
             return res.status(500).send({
                 message: err.message || "Some error occurred while retrieving all Sales."
@@ -119,6 +122,8 @@ exports.Showsales = function (req, res) {
             });
         });
 };
+
+
 exports.FetchDailyExpense = function (req, res) {
     de_instance.find()
         .then(de => {
