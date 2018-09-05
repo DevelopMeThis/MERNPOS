@@ -19,4 +19,5 @@ router.post('/fetchitembyid',Controller.fetchoneByid);
 router.post('/fetchsales',Controller.Showsales);
 router.post('/showstats',Controller.displaySales);
 router.post('/showstats2',Controller.displaySales2);
+router.post('/showCustomSales',Controller.displaySales3);
 module.exports = router;

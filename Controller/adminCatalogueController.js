@@ -303,3 +303,34 @@ exports.displaySales2 = function(req,res){
         });
     });
 };
+
+exports.displaySales3 = function(req,res){
+    noofdays = parseInt(req.body.noofdays);
+    todate= new Date();
+    fromdate = new Date();
+    fromdate.setDate(fromdate.getDate()-noofdays);
+    var sales=[];
+    sales_instance.find()
+        .then(sal=>{
+            if (sal.length == 0) {
+                res.json({msg: "No data available to show"});
+            }
+            else{
+                for(var i = 0; i < sal.length; i++){
+                    let count=0;
+                    for(var j = 0; j < sal[i].products.length; j++){
+                        date = new Date(sal[i].date_sale);
+                        if((date.getTime() <= todate.getTime() && date.getTime() >= fromdate.getTime())){
+                            sales.push(sal[i]);
+                        }
+                    }
+                }
+                console.log(sales);
+                res.json({Sales:sales});
+            }
+        }).catch(err =>{
+            return res.status(500).send({
+                message: err.message || "Some error occurred while retrieving all Sales."
+        });
+    });
+};
