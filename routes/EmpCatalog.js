@@ -12,4 +12,6 @@ router.post('/Makesale',Controller.makesale);
 router.post('/fetchsales',Controller.Showsales);
 router.post('/fetchdexp',Controller.FetchDailyExpense);
 router.post('/add-dexpense',Controller.AddDailyExpense);
+router.post('/DateSale',Controller.ShowCustomSales);
+
 module.exports = router;
