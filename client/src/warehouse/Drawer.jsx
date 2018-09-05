@@ -20,6 +20,7 @@ import {
 import FullTable from './FullTable';
 import Sale from './sale/Sale';
 import ViewSales from './sale/ViewSales';
+import DateSales from './sale/CustomSales';
 import Welcome from './Welcome';
 import Dialog, {
   DialogActions,
@@ -137,6 +138,14 @@ class ResponsiveDrawer extends React.Component {
     console.log("sales")
   }
 
+  ViewDateSales = () => {
+    this.setState({
+        OnDisplay:<DateSales token={this.state.t} cnic={this.state.cnic}/>
+    })
+    console.log("date sales")
+  }
+
+
   AddExpenses = () => {
 
     this.setState({
@@ -177,7 +186,9 @@ class ResponsiveDrawer extends React.Component {
            <Divider />
             <ListItem button={true} onClick={this.FullTableHandleClick.bind(this)}>All Items</ListItem>
             <Divider/>
-            <ListItem button={true} onClick={this.ViewSales}>My Sales</ListItem>
+            <ListItem button={true} onClick={this.ViewSales}>All Sales</ListItem>
+            <Divider />
+            <ListItem button={true} onClick={this.ViewDateSales}>Check Sales</ListItem>
             <Divider />
             <ListItem button={true} onClick={this.AddExpenses.bind(this)}>Add Expenses</ListItem>
             <Divider/>

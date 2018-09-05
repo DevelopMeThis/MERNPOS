@@ -24,19 +24,19 @@ export default class extends React.Component {
       data:[]
     };
 
-
   }
 
   oneDay = () => {
 
     var details2 = {
       'token':this.state.t,
+      'cnic':this.props.cnic,
       'noofdays':1
     };
     var formBody = [];
     for (var property in details2) {
       var encodedKey = encodeURIComponent(property);
-      var encodedValue = encodeURIComponent(details[property]);
+      var encodedValue = encodeURIComponent(details2[property]);
       formBody.push(encodedKey + "=" + encodedValue);
     }
     formBody = formBody.join("&");
@@ -65,12 +65,13 @@ export default class extends React.Component {
     
     var details2 = {
       'token':this.state.t,
+      'cnic':this.props.cnic,
       'noofdays':3
   };
     var formBody = [];
     for (var property in details2) {
       var encodedKey = encodeURIComponent(property);
-      var encodedValue = encodeURIComponent(details[property]);
+      var encodedValue = encodeURIComponent(details2[property]);
       formBody.push(encodedKey + "=" + encodedValue);
     }
     formBody = formBody.join("&");
@@ -98,12 +99,13 @@ export default class extends React.Component {
     
     var details2 = {
       'token':this.state.t,
-      'noofdays':10
+      'noofdays':10,
+      'cnic':this.props.cnic
   };
     var formBody = [];
     for (var property in details2) {
       var encodedKey = encodeURIComponent(property);
-      var encodedValue = encodeURIComponent(details[property]);
+      var encodedValue = encodeURIComponent(details2[property]);
       formBody.push(encodedKey + "=" + encodedValue);
     }
     formBody = formBody.join("&");

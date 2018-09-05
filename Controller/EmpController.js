@@ -126,6 +126,7 @@ exports.Showsales = function (req, res) {
 
 exports.ShowCustomSales = function (req, res) {
     noofdays = parseInt(req.body.noofdays);
+    console.log(req.body.cnic);
     todate= new Date();
     fromdate = new Date();
     fromdate.setDate(fromdate.getDate()-noofdays);
