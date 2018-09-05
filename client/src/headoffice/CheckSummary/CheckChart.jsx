@@ -63,13 +63,13 @@ class DatePickers extends React.Component {
   setDate1 = e => {
       this.setState({
           date1:e.target.value
-      })
+      });
       
   }
   setDate2 = e => {
     this.setState({
         date2:e.target.value
-    })
+    });
   }
     checkData = () => {
       console.log(this.state.date1)
