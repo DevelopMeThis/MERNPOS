@@ -133,8 +133,8 @@ export default class extends React.Component {
         return(
             <div>
               <Button variant="raised" onClick={this.oneDay.bind(this)}>1 Day</Button>
-              <Button variant="raised" onClick={this.threeDay}>3 Day</Button>
               <Button variant="raised" onClick={this.tenDay}>10 Day</Button>
+              <Button variant="raised" onClick={this.threeDay}>3 Day</Button>
              <div>
                 <Typography variant="display2"> Sales</Typography>
                 <Paper>
